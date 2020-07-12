@@ -1,0 +1,88 @@
+1)In route:
+Route::POST('/language', 'Configurations\LanguageController@changeLanguage');
+
+2)In LanguageController:
+
+
+<?php
+
+namespace App\Http\Controllers\Configurations;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
+use Lang;
+use App;
+use App\Http\Controllers\BaseController;
+
+class LanguageController extends BaseController
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function changeLanguage(Request $request)
+    {
+        if($request->ajax()){
+            $request->session()->put('locale', $request->locale);
+        }
+    }
+}
+
+3)In Blade SideBar:
+<select id="languageSwitcher" style="background-color: white; color:black;">
+                <?php $cuRRlocal = Config::get('app.locale');?>
+                    <option value="en" <?php echo($cuRRlocal == 'en' ? "selected":"")?>>Eng</option>
+                    <option value="nep" <?php echo($cuRRlocal == 'nep' ? "selected":"")?>>Nep</option>
+                </select>
+                <input type="hidden" name="_token" id="csrf_toKen" value="{{csrf_token()}}">
+
+4)In Footer Script:
+
+<script>
+        $(document).ready(function(){
+           $('#languageSwitcher').change(function(){
+              var locale = $(this).val();
+              var _token = $("input[name=_token]").val();
+              $.ajax({
+                  url: '/language',
+                  type: 'POST',
+                  data: {locale: locale, _token: _token},
+                  dataType: 'json',
+                  success: function(data){
+
+                  },
+                  error: function (data) {
+
+                  },
+                  beforeSend: function () {
+
+                  },
+                  complete: function (data) {
+                      window.location.reload(true);
+                  }
+              })
+           });
+        });
+    </script>
+
+
+5)In view file lang/eng/app.php
+   <?php
+
+   return [
+
+       'add' => 'Add',
+   ];
+   and
+   lang/nep/app.php
+    return [
+
+          'add' => 'िर्जना गर्नुहोस्',
+      ];
+
+6)In view file
+
+    {{trans('app.add')}}
