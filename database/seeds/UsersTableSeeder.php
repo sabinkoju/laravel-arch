@@ -16,9 +16,9 @@ class UsersTableSeeder extends Seeder
 
             [
                 'user_group_id' => 1,
-                'name' => 'Sunil Prajapati',
-                'email' => 'sunil@youngminds.com.np',
-                'password' => bcrypt('sunil'),
+                'name' => 'Young Minds',
+                'email' => 'developer@youngminds.com.np',
+                'password' => bcrypt('ymc123'),
                 'designation_id'=>1,
                 'user_status'=>'active',
             ],
