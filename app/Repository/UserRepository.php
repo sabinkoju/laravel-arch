@@ -9,6 +9,7 @@
 namespace App\Repository;
 
 
+use App\Models\Logs\LoginLogs;
 use App\User;
 
 class UserRepository
@@ -48,5 +49,10 @@ class UserRepository
     public function findByUser($id)
     {
         return $this->user->select('id', 'name')->find($id);
+    }
+
+    public function userLoginDetails(){
+        $loginDetails=LoginLogs::orderBy('id','DESC')->limit(5)->get();
+        return $loginDetails;
     }
 }

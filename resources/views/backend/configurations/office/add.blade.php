@@ -1,21 +1,21 @@
-<div class="box box-default">
-    <div class="box-header with-border">
-        <h3 class="box-title">Add Office</h3>
+<div class="card card-default">
+    <div class="card-header with-border">
+        <h3 class="card-title">Add Office</h3>
 
     </div>
-    <div class="box-body">
+    <div class="card-body">
 
         {!! Form::open(['method'=>'post','url'=>'configurations/office','enctype'=>'multipart/form-data']) !!}
 
         <div class="form-group {{ ($errors->has('district_id'))?'has-error':'' }}">
-            <label>District Name</label>
+            <label>District Name</label><label class="text-danger">*</label>
             {{Form::select('district_id',$district->pluck('nepali_name','id'),Request::get('district_id'),['class'=>'form-control select2','style'=>'width:100%;','id'=>'district_id','placeholder'=>
             'Select District Name'])}}
             {!! $errors->first('district_id', '<span class="text-danger">:message</span>') !!}
         </div>
 
         <div class="form-group {{ ($errors->has('office_type_id'))?'has-error':'' }}">
-            <label>Office Type Name</label>
+            <label>Office Type Name</label><label class="text-danger">*</label>
             {{Form::select('office_type_id',$officeType->pluck('office_type_name','id'),Request::get('office_type_id'),['class'=>'form-control select2','style'=>'width:100%;','id'=>'office_type_id','placeholder'=>
             'Select Office Type Name'])}}
             {!! $errors->first('office_type_id', '<span class="text-danger">:message</span>') !!}
@@ -23,7 +23,7 @@
 
         <div class="form-group {{ ($errors->has('office_code'))?'has-error':'' }}">
             <label>Office Code
-            </label>
+            </label><label class="text-danger">*</label>
         {!! Form::text('office_code',null,['class'=>'form-control','placeholder' => 'Example:001']) !!}
         {!! $errors->first('office_code', '<span class="text-danger">:message</span>') !!}
 
@@ -32,7 +32,7 @@
 
         <div class="form-group {{ ($errors->has('office_name'))?'has-error':'' }}">
             <label>Office Name
-            </label>
+            </label><label class="text-danger">*</label>
         {!! Form::text('office_name',null,['class'=>'form-control','placeholder' => 'Example:Name']) !!}
         {!! $errors->first('office_name', '<span class="text-danger">:message</span>') !!}
 
@@ -56,7 +56,7 @@
 
 
     <!-- /.form group -->
-        <div class="box-footer">
+        <div class="card-footer">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
@@ -65,5 +65,5 @@
 
 
     </div>
-    <!-- /.box-body -->
+    <!-- /.card-body -->
 </div>

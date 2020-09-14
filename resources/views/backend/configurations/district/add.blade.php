@@ -1,14 +1,14 @@
-<div class="box box-default">
-    <div class="box-header with-border">
-        <h3 class="box-title">Add District</h3>
+<div class="card card-default">
+    <div class="card-header with-border">
+        <h3 class="card-title">Add District</h3>
 
     </div>
-    <div class="box-body">
+    <div class="card-body">
 
         {!! Form::open(['method'=>'post','url'=>'configurations/district','enctype'=>'multipart/form-data']) !!}
 
         <div class="form-group {{ ($errors->has('pradesh_id'))?'has-error':'' }}">
-            <label>Pradesh</label>
+            <label>Pradesh</label><label class="text-danger">*</label>
             {{Form::select('pradesh_id',$pradesh->pluck('pradesh_name','id'),Request::get('pradesh_id'),['class'=>'form-control select2','style'=>'width:100%;','id'=>'designation_id','placeholder'=>
             'Select Pradesh Name'])}}
             {!! $errors->first('pradesh_id', '<span class="text-danger">:message</span>') !!}
@@ -45,7 +45,7 @@
 
 
     <!-- /.form group -->
-        <div class="box-footer">
+        <div class="card-footer">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
@@ -54,5 +54,5 @@
 
 
     </div>
-    <!-- /.box-body -->
+    <!-- /.card-body -->
 </div>

@@ -26,8 +26,8 @@ class CreateOfficesTable extends Migration
 
             $table->string('office_code');
             $table->string('office_name');
-            $table->string('office_path');
-            $table->enum('office_status',['active','inactive']);
+            $table->string('office_path')->nullable();
+            $table->enum('office_status',['active','inactive'])->default('active');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -1,9 +1,9 @@
-<div class="box box-default">
-    <div class="box-header with-border">
-        <h3 class="box-title">Add User</h3>
+<div class="card card-default">
+    <div class="card-header with-border">
+        <h3 class="card-title">Add User</h3>
 
     </div>
-    <div class="box-body">
+    <div class="card-body">
 
         {!! Form::open(['method'=>'post','url'=>'user','enctype'=>'multipart/form-data']) !!}
 
@@ -23,20 +23,26 @@
 
         <div class="form-group {{ ($errors->has('name'))?'has-error':'' }}">
             <label>Username:</label>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
                 {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'User Name']) !!}
             </div>
             {!! $errors->first('name', '<span class="text-danger">:message</span>') !!}
+
         </div>
         <!-- /.form group -->
         <div class="form-group {{ ($errors->has('email'))?'has-error':'' }}">
             <label>Email:</label>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-at"></i></span>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
                 {!! Form::email('email',null,['class'=>'form-control','placeholder'=>'email@example.com']) !!}
             </div>
             {!! $errors->first('email', '<span class="text-danger">:message</span>') !!}
+
         </div>
 
         <div class="form-group {{ ($errors->has('avatar_image'))?'has-error':'' }}">
@@ -56,7 +62,7 @@
         </div>
 
         <!-- /.form group -->
-        <div class="box-footer">
+        <div class="card-footer">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>

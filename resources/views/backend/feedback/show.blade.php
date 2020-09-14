@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title','Features')
+@section('title','Feedback')
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">

@@ -26,6 +26,8 @@ class OfficeRequest extends FormRequest
         return [
             'office_code'=>'required',
             'office_name'=>'required',
+            'district_id'=>'required',
+            'office_type_id'=>'required',
         ];
     }
 }

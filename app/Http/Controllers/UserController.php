@@ -57,6 +57,7 @@ class UserController extends BaseController
         $users = $this->userRepository->all();
         $designationList = $this->designation->all();
         $groupList = $this->userGroupRepository->groupList();
+
         return view('backend.users.index', compact('users', 'designationList', 'groupList'));
     }
 
@@ -258,9 +259,10 @@ class UserController extends BaseController
 
     public function profile()
     {
+        $loginDetails=$this->userRepository->userLoginDetails();
         $lastLogin = DB::table('login_logs')->where('user_id', Auth::user()->id)->orderBy('id', 'desc')->skip(1)->take(1)->value('created_at');
         $user = Auth::user();
-        return view('backend.users.profile', compact('user','lastLogin'));
+        return view('backend.users.profile', compact('user','lastLogin','loginDetails'));
     }
 
     public function password(PasswordRequest $request)

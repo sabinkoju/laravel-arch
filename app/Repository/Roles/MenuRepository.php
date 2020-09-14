@@ -64,4 +64,11 @@ class MenuRepository
             ->get();
         return  $result ;
     }
+
+    public static function getMenuLink($controllerName){
+
+        $result = DB::table('menus')->select('menu_link','parent_id')->where('menu_controller',$controllerName)->first();
+        return  $result ;
+
+    }
 }

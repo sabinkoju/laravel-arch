@@ -1,99 +1,77 @@
-<header class="main-header">
-    <a href="{{url('dashboard')}}" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini">
-New
-        </span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">
 
-            Home</span>
-    </a>
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                <span class="sr-only">Toggle navigation</span>
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+        {{--<li class="nav-item d-none d-sm-inline-block">--}}
+            {{--<a href="index3.html" class="nav-link">Home</a>--}}
+        {{--</li>--}}
+        {{--<li class="nav-item d-none d-sm-inline-block">--}}
+            {{--<a href="#" class="nav-link">Contact</a>--}}
+        {{--</li>--}}
+    </ul>
+
+    <!-- SEARCH FORM -->
+    {{--<form class="form-inline ml-3">--}}
+        {{--<div class="input-group input-group-sm">--}}
+            {{--<input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">--}}
+            {{--<div class="input-group-append">--}}
+                {{--<button class="btn btn-navbar" type="submit">--}}
+                    {{--<i class="fas fa-search"></i>--}}
+                {{--</button>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</form>--}}
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-user"></i>
             </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
-    <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
+                <span class="dropdown-item dropdown-header">
+                     @if(Auth::user()->user_image!=null)
+                        <img src="{{asset('/storage/uploads/users/images/profilePic/'.Auth::user()->user_image)}}" class="img-circle elevation-2" alt="User Image" style="width: 100px;height: 90px;margin-left:70px;">
+                    @else
+                        <img src="{{url('/uploads/images/dummyUser.gif')}}" class="dropdown-item dropdown-header text-center" alt="User Image" style="width: 100px;height: 90px;margin-left:70px;">
+                    @endif
+                         <a href="{{url('dashboard')}}" class="d-block">{{Auth::user()->name}}</a>
+                    Settings
+                </span>
+                <div class="dropdown-divider"></div>
+                <a href="{{url('profile')}}" class="dropdown-item">
+                    <i class="fas fa-user mr-2"></i> View Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{url('/profile')}}" class="dropdown-item">
+                    <i class="fas fa-cogs mr-2"></i> Change Password
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('logout') }}" class="dropdown-item"  onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
 
-                <li class="dropdown notifications-menu">
-                    <!-- Menu toggle button -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning">4</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have 4 notifications</li>
-                        <li>
-                            <!-- Inner Menu: contains the notifications -->
-                            <ul class="menu">
-                                <li><a href="#"><i class="fa fa-users text-aqua"></i>You have pending Notifications</a></li>
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">View all</a></li>
-                    </ul>
-                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                      style="display: none;">
+                    {{ csrf_field() }}
+                </form>
 
-                <!-- User Account Menu -->
-                <li class="dropdown user user-menu">
-                    <!-- Menu Toggle Button -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <!-- The user image in the navbar-->
-                        @if(Auth::user()->user_image!=null)
-                            <img class="user-image"
-                                 src="{{asset('/storage/uploads/users/images/profilePic/'.Auth::user()->user_image)}}"
-                                 alt="User Image" height="160px">
-                        @else
-                            <img class="user-image"
-                                 src="{{url('/uploads/images/dummyUser.gif')}}"
-                                 alt="User Image" height="160px">
-                        @endif
-                        <span class="hidden-xs">{{Auth::user()->name}}</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <!-- The user image in the menu -->
-                        <li class="user-header">
-                            @if(Auth::user()->user_image!=null)
-                                <img class="img-circle"
-                                     src="{{asset('/storage/uploads/users/images/profilePic/'.Auth::user()->user_image)}}"
-                                     alt="User Image" height="160px">
-                            @else
-                                <img class="img-circle"
-                                     src="{{url('/uploads/images/dummyUser.gif')}}"
-                                     alt="User Image" height="160px">
-                            @endif
+                <div class="dropdown-divider"></div>
+            </div>
+        </li>
 
-                            <p>
-                                {{Auth::user()->name}}
-                                <small>Member since {{date("j M. Y", strtotime(Auth::user()->created_at))}}</small>
-                            </p>
-                        </li>
-
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="{{route('profile')}}" class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"
-                                   class="btn btn-default btn-flat">
-                                    Sign out
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+        {{--<li class="nav-item">--}}
+            {{--<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">--}}
+                {{--<i class="fas fa-th-large"></i>--}}
+            {{--</a>--}}
+        {{--</li>--}}
+    </ul>
+</nav>
+<!-- /.navbar -->

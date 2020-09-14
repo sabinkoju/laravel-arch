@@ -60,10 +60,10 @@ function helperPermissionLink($addRoute, $viewRoute)
 {
     $permission = helperPermission();
     if ($permission['isAdd']) {
-        echo '<a href="' . $addRoute . '"  class="pull-right boxTopButton" id="add" data-toggle="tooltip" title="Add New"><i class="fa fa-plus-circle fa-2x"></i></a>';
+        echo '<a href="' . $addRoute . '"  class="pull-right boxTopButton" id="add" data-toggle="tooltip" title="Add New"><i class="fa fa-plus-circle" style="font-size:20px;" ></i></a>';
     }
-    echo '<a href="' . $viewRoute . '"  class="pull-right boxTopButton" data-toggle="tooltip" title="View All"><i class="fa fa-list fa-2x"></i></a>';
-    echo '<a href="' .URL::previous(). '" class="pull-right  boxTopButton" data-toggle="tooltip" title="Go Back"><i class="fa fa-arrow-circle-left fa-2x" ></i></a>';
+    echo '<a href="' . $viewRoute . '"  class="pull-right boxTopButton" data-toggle="tooltip" title="View All"><i class="fa fa-list fa-2x" style="font-size:20px;"></i></a>';
+    echo '<a href="' .URL::previous(). '" class="pull-right  boxTopButton" data-toggle="tooltip" title="Go Back"><i class="fa fa-arrow-circle-left fa-2x" style="font-size:20px;"></i></a>';
     return $permission;
 }
 

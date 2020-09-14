@@ -25,7 +25,8 @@ class MunicipalityRequest extends FormRequest
     {
         return [
             'muni_type_id'=>'required',
-            'district_id'=>'required'
+            'district_id'=>'required',
+            'muni_name'=>'required'
         ];
     }
 }

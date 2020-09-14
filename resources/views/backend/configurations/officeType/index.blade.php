@@ -1,21 +1,36 @@
 @extends('backend.layouts.app')
+@section('title')
+    Office Type
+@endsection
 @section('content')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+
+        <!-- Content Wrapper. Contains page content -->
         <section class="content-header">
-            <h1>
-                {{trans('app.configuration')}}
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> {{trans('app.dashboard')}}</a></li>
-                <li><a href="#">{{trans('app.configuration')}}</a></li>
-                <li class="active">Ofiice Type</li>
-            </ol>
+
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>{{trans('app.configuration')}}</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item">{{trans('app.configuration')}}</li>
+                            <li class="breadcrumb-item active">Office Type</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
         </section>
-        <!-- Main content -->
+
+
+            <!-- Main content -->
         <section class="content">
+
+            <div class="container-fluid">
             @include('backend.message.flash')
 
             <div class="row">
@@ -26,12 +41,12 @@
                         @else
                             <div class="col-md-12" id="listing">
                                 @endif
-                                <div class="box box-default">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Ofiice Type</h3>
+                                <div class="card card-default">
+                                    <div class="card-header with-border">
+                                        <h3 class="card-title"><i class="fa fa-list"></i> Office Type</h3>
                                         <?php
 
-                                        $permission = helperPermissionLink('officeType', 'officeType');
+                                        $permission = helperPermissionLink(url('/configurations/officeType'),url('/configurations/officeType'));
 
                                         $allowEdit = $permission['isEdit'];
 
@@ -40,13 +55,13 @@
                                         $allowAdd = $permission['isAdd'];
                                         ?>
                                     </div>
-                                    <div class="box-body">
+                                    <div class="card-body">
                                         <table id="example1" class="table table-striped table-bordered table-hover table-responsive">
                                             <thead>
                                             <tr>
                                                 <th style="width: 10px;">{{trans('app.sn')}}</th>
                                                 <th>Ofiice Type Name</th>
-                                                <th style="width: 10px" ;
+                                                <th style="width: 10px"
                                                     class="text-right">Action</th>
                                             </tr>
                                             </thead>
@@ -56,7 +71,7 @@
                                                 <tr>
                                                     <th scope=row>{{$i}}</th>
                                                     <td>{{$officeType->office_type_name}}</td>
-                                                    <td class="text-right">
+                                                    <td class="text-right row" style="margin-right: 0px;">
                                                         @if($allowEdit)
                                                             <a href="{{route('officeType.edit',[$officeType->id])}}"
                                                                class="text-info btn btn-xs btn-default" data-toggle="tooltip"
@@ -73,7 +88,7 @@
                                                                     data-toggle="tooltip"
                                                                     data-placement="top" title="Delete"
                                                                     onclick="javascript:return confirm('Are you sure you want to delete?');">
-                                                                <i class="fa fa-trash-o"></i>
+                                                                <i class="fa fa-trash"></i>
                                                             </button>
 
                                                             {!! Form::close() !!}
@@ -89,9 +104,9 @@
 
                                     </div>
 
-                                    <!-- /.box-body -->
+                                    <!-- /.card-body -->
                                 </div>
-                                <!-- /.box -->
+                                <!-- /.card -->
                             </div>
 
                             @if($allowAdd)
@@ -107,6 +122,7 @@
                             @endif
 
                     </div>
+            </div>
             </div>
         </section>
         <!-- /.content -->

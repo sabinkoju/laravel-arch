@@ -1,22 +1,33 @@
 @extends('backend.layouts.app')
+@section('title')
+    User
+@endsection
+
 @section('content')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                User
-                {{--<small>Menu</small>--}}
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"> Home</a></li>
-                <li class="active">User</li>
-            </ol>
+
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>User</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">User</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
         </section>
 
         <!-- Main content -->
         <section class="content">
+            <div class="container-fluid">
             @include('backend.message.flash')
             <div class="row">
                 @if(helperPermission()['isAdd'])
@@ -25,22 +36,25 @@
                             <div class="col-md-12" id="listing">
                                 @endif
 
-                                <div class="box box-default">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">User</h3>
-                                        <?php
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title"><i class="fa fa-list"></i> User</h3>
+                                        <div class="pull-right">
+                                            <?php
 
-                                        $permission = helperPermissionLink(url('user'), url('user'));
+                                            $permission = helperPermissionLink(url('user'), url('user'));
 
-                                        $allowEdit = $permission['isEdit'];
+                                            $allowEdit = $permission['isEdit'];
 
-                                        $allowDelete = $permission['isDelete'];
+                                            $allowDelete = $permission['isDelete'];
 
-                                        $allowAdd = $permission['isAdd'];
+                                            $allowAdd = $permission['isAdd'];
 
-                                        ?>
+                                            ?>
+                                        </div>
+
                                     </div>
-                                    <div class="box-body">
+                                    <div class="card-body">
                                         @if(!count($users)<=0)
                                             <div class="table-responsive">
                                                 <table id="example1"
@@ -85,7 +99,7 @@
                                                                     @endif
                                                                 @endif
                                                             </td>
-                                                            <td class="text-right">
+                                                            <td class="text-right row" style="margin: 0px;">
                                                                 @if($allowEdit)
                                                                     <a href="{{route('user.edit',[$user->id])}}"
                                                                        class="text-info btn btn-xs btn-default"
@@ -105,7 +119,7 @@
                                                                                 data-toggle="tooltip"
                                                                                 data-placement="top" title="Delete"
                                                                                 onclick="javascript:return confirm('Are you sure you want to delete?');">
-                                                                            <i class="fa fa-trash-o"></i>
+                                                                            <i class="fa fa-trash"></i>
                                                                         </button>
                                                                     @endif
                                                                     {!! Form::close() !!}
@@ -144,6 +158,7 @@
                                 </div>
                             @endif
                     </div>
+            </div>
             </div>
         </section>
         <!-- /.content -->

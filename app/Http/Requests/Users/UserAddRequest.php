@@ -27,7 +27,7 @@ class UserAddRequest extends FormRequest
             'designation_id'=>'required',
             'user_group_id'=>'required',
             'name'=>'required',
-            'email'=>'required|unique:users',
+            'email'=>'required|unique:users,email,NULL,id,deleted_at,NULL',
             'avatar_image'=>'mimes:jpg,jpeg,png',
             'user_status'=>'required'
         ];

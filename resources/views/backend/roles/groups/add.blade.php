@@ -1,9 +1,9 @@
-<div class="box box-default">
-    <div class="box-header with-border">
-        <h3 class="box-title">Edit Menu</h3>
+<div class="card card-default">
+    <div class="card-header with-border">
+        <h3 class="card-title">Edit Menu</h3>
 
     </div>
-    <div class="box-body">
+    <div class="card-body">
 
             {!! Form::open(['method'=>'post','url'=>'roles/group']) !!}
             <div class="form-group {{ ($errors->has('group_name'))?'has-error':'' }}">
@@ -19,7 +19,7 @@
             </div>
 
                        <!-- /.form group -->
-            <div class="box-footer">
+            <div class="card-footer">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>

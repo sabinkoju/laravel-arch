@@ -1,4 +1,7 @@
 @extends('backend.layouts.app')
+@section('title')
+  Dashboard
+@endsection
 
 @section('content')
 
@@ -6,19 +9,26 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
+
         <section class="content-header">
-            <h1>
 
-                Dashboard
-
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            </ol>
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Dashboard</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
         </section>
 
         <!-- Main content -->
         <section class="content">
+            <div class="container-fluid">
             <!-- Info boxes -->
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12">
@@ -128,6 +138,7 @@
 
                 <div class="clearfix visible-sm-block"></div>
 
+            </div>
             </div>
         </section>
     </div>

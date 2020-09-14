@@ -29,7 +29,7 @@ class MunicipalityRepository
 
     public function all()
     {
-        $result = $this->municipality->orderBy('muni_code','ASC')->get();
+        $result = $this->municipality->orderBy('muni_code','ASC')->paginate(50);
         return $result;
     }
     public function findById($id)

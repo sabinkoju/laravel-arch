@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'designation_id','user_group_id', 'name', 'email', 'password',
+        'designation_id', 'user_group_id', 'name', 'email', 'password',
         'user_image', 'user_status'
     ];
 
@@ -33,11 +33,38 @@ class User extends Authenticatable
     ];
 
 
-    public function designation(){
-        return $this->belongsTo('App\Models\Configurations\Designation','designation_id','id');
+    public function designation()
+    {
+        return $this->belongsTo('App\Models\Configurations\Designation', 'designation_id', 'id');
     }
 
-    public function user_group(){
-        return $this->belongsTo('App\Models\Configurations\UserGroup','user_group_id','id');
+    public function user_group()
+    {
+        return $this->belongsTo('App\Models\Configurations\UserGroup', 'user_group_id', 'id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Backend\Post');
+    }
+
+    public function events()
+    {
+        return $this->hasMany('App\Models\Backend\Event');
+    }
+
+    public function news()
+    {
+        return $this->hasMany('App\Models\Backend\News');
+    }
+
+    public function pages()
+    {
+        return $this->hasMany('App\Models\Backend\Page');
+    }
+
+    public function notices()
+    {
+        return $this->hasMany('App\Models\Backend\Notice');
     }
 }

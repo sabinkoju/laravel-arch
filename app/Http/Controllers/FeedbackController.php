@@ -118,7 +118,7 @@ class FeedbackController extends BaseController
             $id = (int)$id;
             $categories = ['bug'=>'Bug/Error','suggestion'=>'Suggestion','feedback'=> 'Feedback'];
             $edits = $this->feedback->where('id',$id)->where('user_id',Auth::user()->id)->first();
-            if (count($edits) > 0) {
+            if (!empty($edits)) {
                 return view('backend.feedback.edit', compact('edits','categories'));
             } else {
                 session()->flash('error', 'Id could not be obtained!');

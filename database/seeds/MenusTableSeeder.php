@@ -93,7 +93,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/designation',
                 'menu_controller' => 'DesignationController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-address-card" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '3'
             ],
@@ -104,7 +104,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/fiscalYear',
                 'menu_controller' => 'FiscalYearController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-calendar-check-o" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '5'
             ],
@@ -114,7 +114,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/department',
                 'menu_controller' => 'DepartmentController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-building" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '1'
             ],
@@ -124,7 +124,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/country',
                 'menu_controller' => 'CountryController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-map-o" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '9'
             ],
@@ -134,7 +134,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/pradesh',
                 'menu_controller' => 'PradeshController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-map-marker" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '10'
             ],
@@ -144,7 +144,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/muniType',
                 'menu_controller' => 'MuniTypeController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-map-signs" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '11'
             ],
@@ -154,7 +154,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/district',
                 'menu_controller' => 'DistrictController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-map-pin" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '13'
             ],
@@ -164,7 +164,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/municipality',
                 'menu_controller' => 'MunicipalityController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-map" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '13'
 
@@ -175,7 +175,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/officeType',
                 'menu_controller' => 'OfficeTypeController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-building" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '14'
 
@@ -186,7 +186,7 @@ class MenusTableSeeder extends Seeder
                 'menu_link' => '/configurations/office',
                 'menu_controller' => 'OfficeController',
                 'menu_css' => '',
-                'menu_icon' => '<i class="fa fa-map" aria-hidden="true"></i>',
+                'menu_icon' => '<i class="fa fa-gears" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '15'
 
@@ -211,6 +211,17 @@ class MenusTableSeeder extends Seeder
                 'menu_icon' => '<i class="fa fa-user-times" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '2'
+            ],
+
+            [
+                'parent_id' => '0',
+                'menu_name' => 'Feedback',
+                'menu_link' => '/feedback',
+                'menu_controller' => 'FeedbackController',
+                'menu_css' => '',
+                'menu_icon' => '<i class="fas fa-comment-dots"></i>',
+                'menu_status' => '1',
+                'menu_order' => '21'
             ],
 
         ];

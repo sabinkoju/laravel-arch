@@ -1,12 +1,12 @@
-<div class="box box-default">
-    <div class="box-header with-border">
-        <h3 class="box-title">Edit </h3>
+<div class="card card-default">
+    <div class="card-header with-border">
+        <h3 class="card-title">Edit </h3>
 
     </div>
-    <div class="box-body">
+    <div class="card-body">
         {!! Form::model($edits,['method'=>'PUT','route'=>['district.update',$edits->id],'enctype'=>'multipart/form-data']) !!}
         <div class="form-group {{ ($errors->has('pradesh_id'))?'has-error':'' }}">
-            <label>Pradesh Name</label>
+            <label>Pradesh Name</label><label class="text-danger">*</label>
             {{Form::select('pradesh_id',$pradesh->pluck('pradesh_name','id'),Request::get('pradesh_id'),['class'=>'form-control select2','style'=>'width:100%;','id'=>'pradesh_id','placeholder'=>
             'Select Pradesh Name'])}}
             {!! $errors->first('pradesh_id', '<span class="text-danger">:message</span>') !!}
@@ -42,18 +42,18 @@
         </div>
 
         <!-- /.form group -->
-        <div class="box-footer">
+        <div class="card-footer">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <button type="submit" class="btn btn-primary">Update</button>
                 {{--<button type="submit" class="btn btn-default bg-green">Save & Add New</button>--}}
 
             </div>
-            <!-- /.box-footer -->
+            <!-- /.card-footer -->
 
         </div>
         {!! Form::close() !!}
 
 
     </div>
-    <!-- /.box-body -->
+    <!-- /.card-body -->
 </div>

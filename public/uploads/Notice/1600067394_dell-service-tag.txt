@@ -1,0 +1,2 @@
+Model: Dell Inspiron 3542
+Service Tag:  BTS6332

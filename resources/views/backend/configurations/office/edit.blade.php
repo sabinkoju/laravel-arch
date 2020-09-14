@@ -1,9 +1,9 @@
-<div class="box box-default">
-    <div class="box-header with-border">
-        <h3 class="box-title">Edit </h3>
+<div class="card card-default">
+    <div class="card-header with-border">
+        <h3 class="card-title">Edit </h3>
 
     </div>
-    <div class="box-body">
+    <div class="card-body">
 
         {!! Form::model($edits,['method'=>'PUT','route'=>['office.update', $edits->id]]) !!}
 
@@ -24,7 +24,7 @@
 
         <div class="form-group {{ ($errors->has('office_code'))?'has-error':'' }}">
             <label>Office Code
-            </label>
+            </label><label class="text-danger">*</label>
         {!! Form::text('office_code',null,['class'=>'form-control','placeholder' => 'Example:001']) !!}
         {!! $errors->first('office_code', '<span class="text-danger">:message</span>') !!}
 
@@ -33,7 +33,7 @@
 
         <div class="form-group {{ ($errors->has('office_name'))?'has-error':'' }}">
             <label>Office Name
-            </label>
+            </label><label class="text-danger">*</label>
         {!! Form::text('office_name',null,['class'=>'form-control','placeholder' => 'Example:Name']) !!}
         {!! $errors->first('office_name', '<span class="text-danger">:message</span>') !!}
 
@@ -57,7 +57,7 @@
 
 
         <!-- /.form group -->
-        <div class="box-footer">
+        <div class="card-footer">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
@@ -67,5 +67,5 @@
 
     </div>
 
-    <!-- /.box-body -->
+    <!-- /.card-body -->
 </div>
